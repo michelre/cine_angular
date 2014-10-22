@@ -1,0 +1,12 @@
+.header form{
+    margin-bottom: 5px;
+}
+
+.movies-container ul.movies{
+    list-style: none;
+}
+
+.movies-container ul.movies > li{
+    margin-top: 7px;
+    padding: 5px;
+}
