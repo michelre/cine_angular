@@ -1,23 +1,16 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-</div>
-
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
-
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
+<div class="movies-container" id="top">
+    <ul class="movies">
+        <li ng-repeat="movie in movies">
+            <div class="row">
+                <div class="col-md-4">
+                    <img ng-src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}" width="200" height="300"/>
+                </div>
+                <div class="col-md-8">
+                    <a ng-href="#/info/{{movie.id}}"><h4 ng-bind="movie.title"></h4></a>
+                    <label>Année:</label><span class="date" ng-bind="movie.release_date | date:'yyyy'"></span><br/>
+                    <label>Note:</label><rating ng-model="movie.vote_average" max="10" readonly="true"></rating>(<span ng-bind="movie.vote_count"></span> avis)<br/>
+                </div>
+            </div>
+        </li>
+    </ul>
 </div>

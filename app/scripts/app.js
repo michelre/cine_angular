@@ -10,7 +10,7 @@
  */
 angular
   .module('coursExoApp', [
-    'ngRoute'
+    'ngRoute', 'ui.bootstrap'
   ])
   .config(function ($routeProvider) {
     $routeProvider

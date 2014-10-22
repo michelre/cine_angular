@@ -1,1 +1,16 @@
-<p>This is the popular view.</p>
+<div class="movies-container" id="top">
+    <ul class="movies">
+        <li ng-repeat="movie in movies">
+            <div class="row">
+                <div class="col-md-4">
+                    <img ng-src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}" width="200" height="300"/>
+                </div>
+                <div class="col-md-8">
+                    <a ng-href="#/info/{{movie.id}}"><h4 ng-bind="movie.title"></h4></a>
+                    <label>Année:</label><span class="date" ng-bind="movie.release_date | date:'yyyy'"></span><br/>
+                    <label>Note:</label><rating ng-model="movie.vote_average" max="10" readonly="true"></rating>(<span ng-bind="movie.vote_count"></span> avis)<br/>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
