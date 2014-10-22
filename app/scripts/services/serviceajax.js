@@ -5,9 +5,19 @@
  * @name coursExoApp.serviceAjax
  * @description
  * # serviceAjax
- * Service in the coursExoApp.
+ * Factory in the coursExoApp.
  */
 angular.module('coursExoApp')
-  .service('serviceAjax', function serviceAjax() {
-    // AngularJS will instantiate a singleton by calling "new" on this function
+  .factory('serviceAjax', function () {
+    // Service logic
+    // ...
+
+    var meaningOfLife = 42;
+
+    // Public API here
+    return {
+      someMethod: function () {
+        return meaningOfLife;
+      }
+    };
   });
