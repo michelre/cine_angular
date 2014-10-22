@@ -7,8 +7,17 @@
                 </div>
                 <div class="col-md-8">
                     <a ng-href="#/info/{{movie.id}}"><h4 ng-bind="movie.title"></h4></a>
-                    <label>Année:</label><span class="date" ng-bind="movie.release_date | date:'yyyy'"></span><br/>
-                    <label>Note:</label><rating ng-model="movie.vote_average" max="10" readonly="true"></rating>(<span ng-bind="movie.vote_count"></span> avis)<br/>
+                    <div class="row">
+                        <label class="col-md-2">Année:</label>
+                        <span class="col-md-8" ng-bind="movie.release_date | date:'yyyy'"></span>
+                    </div>
+                    <div class="row">
+                        <label class="col-md-2">Note:</label>
+                        <div class="row col-md-10">
+                            <rating class="col-md-6" ng-model="movie.vote_average" max="10" readonly="true"></rating>
+                            (<span ng-bind="movie.vote_count"></span>&nbspavis)
+                        </div>
+                    </div>
                 </div>
             </div>
         </li>
