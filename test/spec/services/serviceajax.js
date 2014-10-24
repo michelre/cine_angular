@@ -10,13 +10,14 @@ describe('Service: serviceAjax', function () {
     beforeEach(inject(function (_serviceAjax_, _$httpBackend_) {
         serviceAjax = _serviceAjax_;
         httpBackend = _$httpBackend_;
-
-        popularRequest = httpBackend.when('GET', 'http://localhost:3000/popular?page=1').respond({});
     }));
 
     it('should make a request to the right URL when callling popular function', function () {
+        popularRequest = httpBackend.when('GET', 'http://localhost:3000/popular?page=1').respond({});
+
         serviceAjax.popular(1);
         httpBackend.flush();
+
         httpBackend.expectGET('http://localhost:3000/popular?page=1');
     });
 
