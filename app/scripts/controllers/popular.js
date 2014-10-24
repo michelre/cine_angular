@@ -16,6 +16,7 @@ angular.module('coursExoApp')
         $scope.orderByReverse = false;
 
         $scope.loadMovies = function(){
+            $scope.loading = true;
             serviceAjax.popular($scope.currentPage).success(function(data){
                 $scope.loading = false;
                 $scope.movies = data.results;
