@@ -6,19 +6,28 @@ describe('Service: serviceAjax', function () {
     beforeEach(module('coursExoApp'));
 
     // instantiate service
-    var serviceAjax, httpBackend, popularRequest;
+    var serviceAjax, httpBackend;
     beforeEach(inject(function (_serviceAjax_, _$httpBackend_) {
         serviceAjax = _serviceAjax_;
         httpBackend = _$httpBackend_;
     }));
 
     it('should make a request to the right URL when callling popular function', function () {
-        popularRequest = httpBackend.when('GET', 'http://localhost:3000/popular?page=1').respond({});
+        var popularRequest = httpBackend.when('GET', 'http://localhost:3000/popular?page=1').respond({});
 
         serviceAjax.popular(1);
         httpBackend.flush();
 
         httpBackend.expectGET('http://localhost:3000/popular?page=1');
+    });
+
+    it('should make a request to the right URL when callling search function', function () {
+        serviceAjax.search("test", 1);
+
+        httpBackend.expectGET('http://localhost:3000/search?q=test&page=1').respond({});
+
+        httpBackend.flush();
+
     });
 
 });
