@@ -2,19 +2,33 @@
 
 describe('Directive: loading', function () {
 
-  // load the directive's module
-  beforeEach(module('coursExoApp'));
+    // load the directive's module
+    beforeEach(module('coursExoApp'));
 
-  var element,
-    scope;
+    var element,
+        scope;
 
-  beforeEach(inject(function ($rootScope) {
-    scope = $rootScope.$new();
-  }));
+    beforeEach(inject(function ($rootScope) {
+        scope = $rootScope.$new();
+    }));
 
-  it('should make hidden element visible', inject(function ($compile) {
-    element = angular.element('<loading></loading>');
-    element = $compile(element)(scope);
-    expect(element.text()).toBe('this is the loading directive');
-  }));
+    it('should display the container with the movies when the $scope.loading attribute is false', inject(function ($compile) {
+        scope.loading = false;
+        element = angular.element('<div loading="loading"></div>');
+        element = $compile(element)(scope);
+        scope.$digest();
+
+        var loaderContainer = angular.element(element.find('div')[0]);
+        expect(loaderContainer.hasClass('ng-hide')).toBe(true);
+    }));
+
+    it('should display the container with the movies when the $scope.loading attribute is true', inject(function ($compile) {
+        scope.loading = true;
+        element = angular.element('<div loading="loading"></div>');
+        element = $compile(element)(scope);
+        scope.$digest();
+
+        var loaderContainer = angular.element(element.find('div')[0]);
+        expect(loaderContainer.hasClass('ng-hide')).toBe(false);
+    }));
 });

@@ -19,7 +19,8 @@ angular.module('coursExoApp')
             compile: function compile(element, attrs, transclude){
                 var spinner = new Spinner().spin();
                 var loadingContainer = element.find(".loading-container")[0];
-                loadingContainer.appendChild(spinner.el);
+                if(loadingContainer != undefined)
+                    loadingContainer.appendChild(spinner.el);
             }
         };
     });
