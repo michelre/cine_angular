@@ -30,4 +30,13 @@ describe('Service: serviceAjax', function () {
 
     });
 
+    it('should make a request to the right URL when callling info function', function () {
+        serviceAjax.info(23401);
+
+        httpBackend.expectGET('http://localhost:3000/info/23401').respond({});
+
+        httpBackend.flush();
+
+    });
+
 });
