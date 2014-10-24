@@ -39,4 +39,22 @@ describe('Controller: SearchCtrl', function () {
 
         expect(scope.loadMovies).toHaveBeenCalled();
     });
+
+    it('should set $scope.orderByReverse and $scope.orderByPredicate when calling $scope.clickPredicateName function', function () {
+        scope.orderByReverse = true;
+
+        scope.clickPredicateName();
+
+        expect(scope.orderByPredicate).toBe('title');
+        expect(scope.orderByReverse).toBe(false);
+    });
+
+    it('should set $scope.orderByReverse and $scope.orderByPredicate when calling $scope.clickPredicateRate function', function () {
+        scope.orderByReverse = true;
+
+        scope.clickPredicateRate();
+
+        expect(scope.orderByPredicate).toBe('vote_average');
+        expect(scope.orderByReverse).toBe(false);
+    });
 });
