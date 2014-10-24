@@ -10,7 +10,12 @@
 angular.module('coursExoApp')
     .controller('InfoCtrl', function ($scope, $routeParams, serviceAjax) {
         var id = $routeParams.id;
-        serviceAjax.info(id).success(function(data){
-            $scope.movie = data;
-        })
+
+        $scope.infoMovie = function(){
+            serviceAjax.info(id).success(function(data){
+                $scope.movie = data;
+            });
+        }
+
+        $scope.infoMovie();
     });
