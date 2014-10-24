@@ -8,7 +8,7 @@
  * Factory in the coursExoApp.
  */
 angular.module('coursExoApp')
-  .factory('serviceAjax', function ($http) {
+  .factory('serviceAjax', function ($http, $q) {
     return{
         popular: function(page){
             return $http.get("http://localhost:3000/popular?page=" + page);

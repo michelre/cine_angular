@@ -12,7 +12,7 @@ angular.module('coursExoApp')
         $scope.currentPage = 1;
         $scope.totalPages = 0;
 
-        var loadMovies = function(){
+        $scope.loadMovies = function(){
             serviceAjax.popular($scope.currentPage).success(function(data){
                 $scope.movies = data.results;
                 $scope.totalPages = data.total_pages;
@@ -20,7 +20,7 @@ angular.module('coursExoApp')
         };
 
         $scope.pageChanged = function(){
-            loadMovies();
+            $scope.loadMovies();
         };
-        loadMovies();
+        $scope.loadMovies();
   });
