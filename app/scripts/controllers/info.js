@@ -18,11 +18,5 @@ angular.module('coursExoApp')
             })
         }
 
-        $scope.infoMovie = function(){
-            serviceAjax.info(id).success(function(data){
-                $scope.movie = data;
-            });
-        }
-
         $scope.infoMovie();
     });
