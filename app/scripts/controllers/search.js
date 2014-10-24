@@ -16,7 +16,7 @@ angular.module('coursExoApp')
         $scope.orderByPredicate = "title";
         $scope.orderByReverse = false;
 
-        var loadMovies = function(){
+        $scope.loadMovies = function(){
             $scope.loading = true;
             serviceAjax.search($scope.query, $scope.currentPage).success(function(data){
                 $scope.loading = false;
@@ -26,7 +26,7 @@ angular.module('coursExoApp')
         };
 
         $scope.pageChanged = function(){
-            loadMovies();
+            $scope.loadMovies();
         };
 
         $scope.clickPredicateName = function(){
@@ -39,6 +39,6 @@ angular.module('coursExoApp')
             $scope.orderByPredicate = 'vote_average';
         }
 
-        loadMovies();
+        $scope.loadMovies();
     });
 

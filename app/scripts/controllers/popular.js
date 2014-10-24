@@ -15,18 +15,16 @@ angular.module('coursExoApp')
         $scope.orderByPredicate = "title";
         $scope.orderByReverse = false;
 
-        var loadMovies = function(){
-            $scope.loading = true;
+        $scope.loadMovies = function(){
             serviceAjax.popular($scope.currentPage).success(function(data){
                 $scope.loading = false;
                 $scope.movies = data.results;
                 $scope.totalPages = data.total_pages;
-                $scope.loading = false;
             });
         };
 
         $scope.pageChanged = function(){
-            loadMovies();
+            $scope.loadMovies();
         };
 
         $scope.clickPredicateName = function(){
@@ -39,5 +37,5 @@ angular.module('coursExoApp')
             $scope.orderByPredicate = 'vote_average';
         }
 
-        loadMovies();
+        $scope.loadMovies();
   });

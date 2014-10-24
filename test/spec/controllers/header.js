@@ -16,7 +16,8 @@ describe('Controller: HeaderCtrl', function () {
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings.length).toBe(3);
+  it('should set the path of browser address using $location when calling searchAction function', function(){
+      
+      scope.searchAction();
   });
 });
