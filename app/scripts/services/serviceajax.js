@@ -8,7 +8,7 @@
  * Factory in the coursExoApp.
  */
 angular.module('coursExoApp')
-  .factory('serviceAjax', function ($http) {
+  .factory('serviceAjax', function ($http, $q) {
     return{
         search: function(query, page){
             return $http.get("http://localhost:3000/search?q=" + query + "&page=" + page);
