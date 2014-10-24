@@ -24,3 +24,7 @@
 .movie_detail dd{
     margin-left: 100px;
 }
+
+.movies-container a{
+    cursor: pointer;
+}
