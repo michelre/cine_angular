@@ -14,7 +14,7 @@ angular.module('coursExoApp')
         $scope.totalPages = 0;
         $scope.loading = true;
 
-        var loadMovies = function(){
+        $scope.loadMovies = function(){
             $scope.loading = true;
             serviceAjax.search($scope.query, $scope.currentPage).success(function(data){
                 $scope.loading = false;
@@ -24,9 +24,9 @@ angular.module('coursExoApp')
         };
 
         $scope.pageChanged = function(){
-            loadMovies();
+            $scope.loadMovies();
         };
 
-        loadMovies();
+        $scope.loadMovies();
     });
 
