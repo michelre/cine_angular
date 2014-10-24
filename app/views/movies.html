@@ -24,7 +24,7 @@
     </ul>
     <div class="row">
         <div class="col-md-9 col-md-offset-3">
-            <pagination total-items="totalPages" ng-model="currentPage" ng-change="pageChanged()" items-per-page="20" max-size="5" boundary-links="true"></pagination>
+            <pagination total-items="totalPages" ng-model="$parent.currentPage" ng-change="pageChanged()" items-per-page="20" max-size="5" boundary-links="true"></pagination>
         </div>
     </div>
 </div>
