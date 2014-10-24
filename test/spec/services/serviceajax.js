@@ -13,12 +13,12 @@ describe('Service: serviceAjax', function () {
     }));
 
     it('should make a request to the right URL when callling popular function', function () {
-        var popularRequest = httpBackend.when('GET', 'http://localhost:3000/popular?page=1').respond({});
-
         serviceAjax.popular(1);
+
+        httpBackend.expectGET('http://localhost:3000/popular?page=1').respond({});
+
         httpBackend.flush();
 
-        httpBackend.expectGET('http://localhost:3000/popular?page=1');
     });
 
     it('should make a request to the right URL when callling search function', function () {
