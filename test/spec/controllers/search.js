@@ -19,7 +19,7 @@ describe('Controller: SearchCtrl', function () {
     }));
 
     it('should set $scope.movies and $scope.total_pages when calling $scope.loadMovies', function () {
-        spyOn(serviceAjax, 'search').andCallFake(function () {
+        spyOn(serviceAjax, 'search').and.callFake(function () {
             return{
                 success: function (callback) {
                     callback({"results": [{}], "total_pages": 10})

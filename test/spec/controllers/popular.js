@@ -20,7 +20,7 @@ describe('Controller: PopularCtrl', function () {
 
     }));
     it('should set $scope.movies and $scope.total_pages when calling $scope.loadMovies', function () {
-        spyOn(serviceAjax, 'popular').andCallFake(function () {
+        spyOn(serviceAjax, 'popular').and.callFake(function () {
             return{
                 success: function (callback) {
                     callback({"results": [
