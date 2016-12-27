@@ -32,6 +32,7 @@ describe('Controller: SearchCtrl', function () {
         expect(scope.totalPages).toEqual(10);
         expect(scope.movies).toEqual([{}]);
     });
+
     it('should call loadMovies function when calling pageChanged function', function () {
         spyOn(scope, 'loadMovies');
 
