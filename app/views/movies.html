@@ -1,0 +1,34 @@
+<div class="movies-container" id="top" loading="loading">
+    <div class="row" ng-show="movies.length > 1">
+        <a ng-click="clickPredicateName()" class="col-md-offset-7 col-md-2">Trier par nom</a>
+        <a ng-click="clickPredicateRate()" class="col-md-2">Trier par note</a>
+    </div>
+    <ul class="movies">
+        <li ng-repeat="movie in movies | orderBy: orderByPredicate : orderByReverse">
+            <div class="row">
+                <div class="col-md-4">
+                    <img ng-src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}" width="200" height="300"/>
+                </div>
+                <div class="col-md-8">
+                    <a ng-href="#/info/{{movie.id}}"><h4 ng-bind="movie.title"></h4></a>
+                    <div class="row">
+                        <label class="col-md-2">Année:</label>
+                        <span class="col-md-8" ng-bind="movie.release_date | date:'yyyy'"></span>
+                    </div>
+                    <div class="row">
+                        <label class="col-md-2">Note:</label>
+                        <div class="row col-md-10">
+                            <rating class="col-md-6" ng-model="movie.vote_average" max="10" readonly="true"></rating>
+                            (<span ng-bind="movie.vote_count"></span>&nbspavis)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <div class="row">
+        <div class="col-md-9 col-md-offset-3">
+            <pagination total-items="totalPages" ng-model="$parent.currentPage" ng-change="pageChanged()" items-per-page="20" max-size="5" boundary-links="true"></pagination>
+        </div>
+    </div>
+</div>

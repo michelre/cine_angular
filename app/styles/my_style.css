@@ -1,0 +1,30 @@
+.header form{
+    margin-bottom: 5px;
+}
+
+.movies-container ul.movies{
+    list-style: none;
+}
+
+.movies-container ul.movies > li{
+    margin-top: 7px;
+    padding: 5px;
+}
+
+.movie_detail ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.movie_detail dt{
+    width: 80px;
+}
+
+.movie_detail dd{
+    margin-left: 100px;
+}
+
+.movies-container a{
+    cursor: pointer;
+}
